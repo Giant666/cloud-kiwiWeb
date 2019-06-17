@@ -1,18 +1,18 @@
-package cn.kiwi1.weather;
+package cn.kiwi1.zuul;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
-public class TestApplication {
+@EnableZuulProxy
+public class ClientApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TestApplication.class, args);
+        SpringApplication.run(ClientApplication.class, args);
     }
 
 }

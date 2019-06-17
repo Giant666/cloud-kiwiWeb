@@ -8,7 +8,10 @@
         <module>cloud-Weather</module>
         <module>cloud-Server</module>
         <module>cloud-db</module>
+        <module>cloud-client-zuul</module>
+        <module>cloud-config-server</module>
         <module>cloud-Client</module>
+        <module>cloud-client-feign-hystrix</module>
     </modules>
 
     <parent>
@@ -37,11 +40,6 @@
             <dependency>
                 <groupId>cn.kiwi1</groupId>
                 <artifactId>cloud-Weather</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.kiwi1</groupId>
-                <artifactId>cloud-Server</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -118,6 +116,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.49</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
@@ -138,6 +142,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
 

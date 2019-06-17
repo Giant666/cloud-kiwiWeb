@@ -1,5 +1,6 @@
 package cn.kiwi1.weather.job;
 
+import cn.kiwi1.weather.service.CityClient;
 import cn.kiwi1.weather.service.Impl.WeatherDataCollectionServiceImpl;
 import cn.kiwi1.weather.vo.City.City;
 import org.quartz.JobExecutionException;
@@ -23,6 +24,8 @@ public class WeatherDataSyncJob extends QuartzJobBean {
 
     @Autowired
     private WeatherDataCollectionServiceImpl weatherDataCollectionService;
+    @Autowired
+    private CityClient cityClient;
 
     @Override
     protected void executeInternal(org.quartz.JobExecutionContext context) throws JobExecutionException {
@@ -31,10 +34,23 @@ public class WeatherDataSyncJob extends QuartzJobBean {
         List<City> cities =null;
         try {
 
-            cities = new ArrayList<>();
-            City cityX = new City();
-            cityX.setCityId("101280601");
-            cities.add(cityX);
+//
+//
+//            cities = new ArrayList<>();
+//            City cityX = new City();
+//            cityX.setCityId("101280601");
+//            cities.add(cityX);
+//
+//            for(City city:cities){
+//                String cityId=city.getCityId();
+//                logger.info("天气数据同步任务中，id：",cityId);
+//
+//                weatherDataCollectionService.syncDataByCityId(cityId);
+//
+//            }
+//            logger.info("天气数据同步任务完成！");
+//
+            cities=cityClient.listCity();
 
             for(City city:cities){
                 String cityId=city.getCityId();
@@ -44,7 +60,6 @@ public class WeatherDataSyncJob extends QuartzJobBean {
 
             }
             logger.info("天气数据同步任务完成！");
-
         }catch (Exception e){
             logger.info("获取城市异常");
         }

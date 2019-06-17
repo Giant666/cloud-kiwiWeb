@@ -1,5 +1,6 @@
 package cn.kiwi1.weather.controller;
 
+import cn.kiwi1.weather.service.DataClient;
 import cn.kiwi1.weather.service.Impl.WeatherDataServiceImpl;
 import cn.kiwi1.weather.service.Impl.WeatherReportServiceImpl;
 import cn.kiwi1.weather.vo.Weather.Forecast;
@@ -24,7 +25,7 @@ import java.util.List;
 @RequestMapping("/report")
 public class WeatherReportController {
     @Autowired
-    private WeatherDataServiceImpl weatherService;
+    private DataClient dataClient;
 
     @Autowired
     private WeatherReportServiceImpl weatherReportService;
@@ -40,7 +41,7 @@ public class WeatherReportController {
         Weather data = new Weather();
         WeatherResponse weatherResponse = new WeatherResponse();
         List<Forecast> forecasts = new ArrayList<Forecast>();
-        weatherResponse=weatherService.getDataByCityId("101280601");
+        weatherResponse=dataClient.getDataByCityId("101280601");
 
         data = weatherResponse.getData();
 

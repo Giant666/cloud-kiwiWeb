@@ -15,5 +15,5 @@ public interface WeatherReportService {
      @param  * @param cityId
      *@reutn Weather
     */
-    Weather getDataByCityId(String cityId);
+    Weather getDataByCityId(String cityId) throws Exception;
 }
