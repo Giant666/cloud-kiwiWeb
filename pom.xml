@@ -10,8 +10,8 @@
         <module>cloud-db</module>
         <module>cloud-client-zuul</module>
         <module>cloud-config-server</module>
-        <module>cloud-Client</module>
         <module>cloud-client-feign-hystrix</module>
+        <module>cloud-test-config-client</module>
     </modules>
 
     <parent>
